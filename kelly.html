@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kelly 💘</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    h1 { font-size: 32px; margin-bottom: 20px; }
+    button {
+      padding: 12px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #yesBtn { background: #ff4d6d; color: white; }
+    #noBtn {
+      background: #222;
+      color: white;
+      position: fixed;
+    }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <h1>Kelly, will you be my Valentine? 💖</h1>
+  <button id="yesBtn">Yes 🥰</button>
+</div>
+
+<button id="noBtn">No 😅</button>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+
+function moveNo() {
+  const maxX = window.innerWidth - noBtn.offsetWidth;
+  const maxY = window.innerHeight - noBtn.offsetHeight;
+
+  noBtn.style.left = Math.random() * maxX + "px";
+  noBtn.style.top = Math.random() * maxY + "px";
+}
+
+noBtn.addEventListener("mouseenter", moveNo);
+noBtn.addEventListener("touchstart", moveNo);
+
+yesBtn.addEventListener("click", () => {
+  document.body.innerHTML = `
+    <div style="display:grid;place-items:center;height:100vh;
+    background:linear-gradient(135deg,#ffdde1,#ee9ca7);
+    font-family:sans-serif;text-align:center;">
+      <h1>YAY Kelly!! 💘🥹</h1>
+      <p>You lost the game</p>
+    </div>
+  `;
+});
+
+moveNo();
+</script>
+
+</body>
+</html>
